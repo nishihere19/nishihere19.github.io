@@ -3,10 +3,12 @@
 import React from "react";
 import { Layout } from "components/common";
 import { Intro, Contact, Projects } from "components/landing";
+import { Education } from "components/landing/Education";
 
 export default () => (
   <Layout>
     <Intro />
+    <Education />
     <Projects />
     <Contact />
   </Layout>

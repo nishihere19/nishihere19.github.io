@@ -57,6 +57,8 @@ export const Details = styled.div`
     margin-bottom: 2.5rem;
     width: 500px;
     height: 200px;
+    color: linear-gradient(315deg, #c73e1d 0%, #a23b72 37%, #2e86ab 100%);
+    
     @media (max-width: 680px) {
       margin-bottom:1rem;
       width: 300px;

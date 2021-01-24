@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   .footer-light {
     width: 100%;
     padding: 4rem 0rem 2rem 0rem;
-    background: #e3e1d5;
+    background: #949c97;
     color: #000;
   }
   .powered {

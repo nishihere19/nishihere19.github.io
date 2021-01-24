@@ -605,8 +605,9 @@ export const Global = createGlobalStyle`
       font-family: 'Inter', Helvetica, sans-serif;
       color: ${({ theme }) =>
         theme === "light" ? "hsla(0, 0%, 0%, 0.8)" : "#fff"};
-      background-color: ${({ theme }) =>
-        theme === "light" ? "#fff" : "#212121"};
+        
+      ${({ theme }) =>
+        theme === "light" ? "background-image: linear-gradient(319deg, #cdedfd 0%, #ffec82 37%, #ffcfd2 100%)" : "background-color: #212121"};
       transition: .3s all;
       font-weight: normal;
       word-wrap: break-word;

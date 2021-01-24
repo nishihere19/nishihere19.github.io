@@ -26,7 +26,7 @@ export const Intro = () => {
         dencrypt(values[i]);
         //console.log(dencrypt);
         i = i === values.length - 1 ? 0 : i + 1;
-      }, 50);
+      }, 500);
   
       return () => clearInterval(Action);
     }, []);
