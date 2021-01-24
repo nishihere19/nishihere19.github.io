@@ -20,13 +20,7 @@ export const Footer = () => {
                 <h2>{name}</h2>
                 <span>© All rights are reserved | {new Date().getFullYear()} </span>
 
-                <div className="powered">
-                  <p>Powered By</p>
-                  <a href="https://www.crio.do" target="_blank" rel="noreferrer">
-                    {' '}
-                    <img width="120" src={crio} alt="Crio" />
-                  </a>
-                </div>
+                
               </div>{' '}
               <div>
                 {' '}

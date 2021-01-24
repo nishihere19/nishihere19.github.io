@@ -43,7 +43,7 @@
     "lint:fix": "eslint . --fix",
     "reset": "rm -rf .cache/ public/",
     "test": "jest",
-    "netlify":"netlify"
+    "netlify": "netlify"
   },
   "devDependencies": {
     "@testing-library/dom": "^7.29.2",
