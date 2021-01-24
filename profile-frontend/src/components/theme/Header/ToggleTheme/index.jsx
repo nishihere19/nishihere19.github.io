@@ -6,6 +6,7 @@ import { Wrapper } from './styles';
 
 const ToggleTheme = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  //console.log(theme);
 
   return (
     <Wrapper type="button" onClick={toggleTheme}>

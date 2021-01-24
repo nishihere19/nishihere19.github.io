@@ -10,7 +10,9 @@ import { Wrapper, Grid, Item, Content, Stats } from "./styles";
 export const Projects = () => {
   const { theme } = useContext(ThemeContext);
   const [repos, setRepos] = useState([]);
-  console.log(process.env.GITHUB_TOKEN);
+  //console.log(process.env.GITHUB_TOKEN);
+  const repoarr=["bubble_game-SOP","React-app-project","Nodejs-File-Manager","Word-counter","News-generator","Paint-On-Canvas"];
+  const finalRepos=[]
   useEffect(() => {
     axios
       .get("https://api.github.com/user/repos", {
@@ -25,12 +27,14 @@ export const Projects = () => {
       })
       .then((response) => response.data)
       .then((repoData) => {
-        repoData.sort((a, b) =>
-          a.stargazers_count < b.stargazers_count ? 1 : -1
+        var i;
+        repoData.map((a) =>{
+          for(i=0;i<6;i++) if(repoarr[i]===a.name) finalRepos.push(a);
+        } 
         );
-        console.log(repoData);
-        repoData = repoData.slice(0, 8);
-        setRepos(repoData);
+        //console.log(repoData,finalRepos);
+        //repoData = repoData.slice(0, 8);
+        setRepos(finalRepos);
       })
       .catch((error) => console.log(error));
   }, []);

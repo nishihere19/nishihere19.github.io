@@ -13,7 +13,7 @@ export const IntroWrapper = styled.div`
 
 export const Details = styled.div`
   flex: 1;
-
+  margin-bottom:0.5rem;
   @media (max-width: 960px) {
     width: 100%;
     margin-bottom: 2rem;
@@ -35,6 +35,8 @@ export const Details = styled.div`
   }
   h5{
     margin-bottom: 2.5rem;
+    width: 500px;
+    height: 200px;
     font-size: 26pt;
     font-weight: normal;
     color: ${({ theme }) => (theme === "light" ? "#707070" : "#e6e6e6")};
@@ -45,7 +47,21 @@ export const Details = styled.div`
     }
 
     @media (max-width: 680px) {
-      font-size: 26pt;
+      margin-bottom:1rem;
+      width: 300px;
+      height: 150px;
+      font-size: 20pt;
+    }
+  }
+  h5 div{
+    margin-bottom: 2.5rem;
+    width: 500px;
+    height: 200px;
+    @media (max-width: 680px) {
+      margin-bottom:1rem;
+      width: 300px;
+      height: 120px;
+      font-size: 20pt;
     }
   }
 
@@ -79,7 +95,11 @@ export const Details = styled.div`
   }
   .social {
     margin-top: 50px;
+    @media(max-width:680px){
+      margin-left: 30%;
+    }
   }
+
   .social a img {
     margin-right: 15px;
   }
