@@ -16,8 +16,12 @@ import { IntroWrapper, Details, Thumbnail } from './styles';
 
 export const Intro = () => {
   const values = ["I am a sophomore at NIT Trichy who loves to learn new things and build stuff!"];
+  const options={
+    //chars:["_"],
+    interval:25
+  }
   function TextAdder(){
-    const { result, dencrypt} = useDencrypt({interval:25});
+    const { result, dencrypt} = useDencrypt(options);
     
     React.useEffect(() => {
       let i = 0;
