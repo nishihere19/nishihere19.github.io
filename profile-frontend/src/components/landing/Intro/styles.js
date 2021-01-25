@@ -98,7 +98,7 @@ export const Details = styled.div`
   .social {
     margin-top: 50px;
     @media(max-width:680px){
-      margin-left: 30%;
+      margin-left: 25%;
     }
   }
 

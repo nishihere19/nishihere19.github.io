@@ -64,7 +64,7 @@ export const Education = () => {
                 <p>{node.description}</p>
               </Content>
               <Stats theme={theme}>
-                <div>CGPA/PERCENTAGE: {node.grade}</div>
+                <div>{node.grade}</div>
               </Stats>
             </Card>
           </Item>

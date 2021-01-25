@@ -6,6 +6,7 @@ import { Intro, Contact, Projects } from "components/landing";
 import { Education } from "components/landing/Education";
 import { Skills } from "components/landing/Skills";
 
+
 export default () => (
   <Layout>
     <Intro />

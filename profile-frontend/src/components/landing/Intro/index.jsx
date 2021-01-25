@@ -11,6 +11,7 @@ import githubLogo from 'assets/illustrations/github_logo.png';
 import linkedinLogoWhite from 'assets/illustrations/linkedin_white.png';
 import githubLogoWhite from 'assets/illustrations/github_white.png';
 import { useDencrypt } from "use-dencrypt-effect";
+import gmailLogo from "assets/illustrations/gmaillogo.png"
 
 import { IntroWrapper, Details, Thumbnail } from './styles';
 
@@ -61,6 +62,9 @@ export const Intro = () => {
             </a>
             <a href={githubUrl} target="_blank" rel="noreferrer">
               <img width="45" src={theme === 'light' ? githubLogo : githubLogoWhite} alt="GitHub" />
+            </a>
+            <a href="mailto:nishihere19@gmail.com" target="_blank" rel="noreferrer">
+              <img width="45" src={theme === 'light' ? gmailLogo : gmailLogo} alt="GitHub" />
             </a>
             
           </div>
