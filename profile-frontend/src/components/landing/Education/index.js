@@ -18,7 +18,7 @@ export const Education = () => {
             id: 1,
             svn_url:" https://www.nitt.edu/",
             description: "B.Tech, Mechanical Engineering(2019-2023)",
-            grade: "9.21 CGPA",
+            grade: "9.02 CGPA",
             img: nitt
         },
         {
@@ -41,7 +41,7 @@ export const Education = () => {
     setCollege(colleges);
   }, []);
   return (
-    <Wrapper as={Container} id="schools">
+    <Wrapper as={Container} id="education">
       {<h2>Education</h2>}
       <Grid>
         {college.map((node) => (

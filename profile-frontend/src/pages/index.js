@@ -5,14 +5,17 @@ import { Layout } from "components/common";
 import { Intro, Contact, Projects } from "components/landing";
 import { Education } from "components/landing/Education";
 import { Skills } from "components/landing/Skills";
-
+import { Experience } from "components/landing/Experience";
+import { Organisations } from "components/landing/Organisations";
 
 export default () => (
   <Layout>
     <Intro />
+    <Experience/>
+    <Projects />
     <Education />
     <Skills/>
-    <Projects />
-    <Contact />
+    <Organisations/>
+    {/* <Contact /> */}
   </Layout>
 );

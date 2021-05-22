@@ -27,6 +27,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^1.0.7",
+    "sharp": "^0.23.4",
     "styled-components": "^5.2.1",
     "use-dencrypt-effect": "^1.0.2",
     "yup": "^0.32.8"
@@ -44,7 +45,7 @@
     "lint:fix": "eslint . --fix",
     "reset": "rm -rf .cache/ public/",
     "test": "jest",
-    "netlify": "netlify"
+    "netlify": "netlify deploy --prod"
   },
   "devDependencies": {
     "@testing-library/dom": "^7.29.2",

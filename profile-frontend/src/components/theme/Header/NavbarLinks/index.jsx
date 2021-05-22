@@ -11,7 +11,10 @@ const NavbarLinks = ({ desktop }) => {
     <Wrapper desktop={desktop} theme={theme}>
       <div className="menu">
         <AnchorLink href="#projects">Projects</AnchorLink>
-        <AnchorLink href="#contact">Contact</AnchorLink>
+        <AnchorLink href="#experience">Experience</AnchorLink>
+        <AnchorLink href="#education">Education</AnchorLink>
+        <AnchorLink href="#skills">Skills</AnchorLink>
+        <AnchorLink href="#organisations">Organisations</AnchorLink>
         <ToggleTheme />
       </div>
     </Wrapper>

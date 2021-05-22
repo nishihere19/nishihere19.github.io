@@ -7,15 +7,15 @@ import Fork from "components/common/Icons/Fork";
 import axios from "axios";
 import { Wrapper, Grid, Item, Content, Stats } from "./styles";
 
-export const Projects = () => {
+export const Organisations = () => {
   const { theme } = useContext(ThemeContext);
   const [repos, setRepos] = useState([]);
   //console.log(process.env.GITHUB_TOKEN);
-  const repoarr=["bubble_game-SOP","Nodejs-File-Manager","Word-counter","text-editor","Paint-On-Canvas"];
+  const repoarr=["Letusmeet","Synergy-NITT","NITTSAC","delta"];
   const finalRepos=[]
   useEffect(() => {
     axios
-      .get("https://api.github.com/user/repos", {
+      .get("https://api.github.com/user/orgs", {
         params: {
           visibility: "public",
           per_page: 100,
@@ -30,7 +30,7 @@ export const Projects = () => {
         var i;
         //console.log(repoData);
         repoData.map((a) =>{
-          for(i=0;i<5;i++) if(repoarr[i]===a.name) finalRepos.push(a);
+          for(i=0;i<5;i++) if(repoarr[i]===a.login) finalRepos.push(a);
         } 
         );
         //console.log(repoData,finalRepos);
@@ -40,21 +40,22 @@ export const Projects = () => {
       .catch((error) => console.log(error));
   }, []);
   return (
-    <Wrapper as={Container} id="projects">
-      {repos.length > 0 && <h2>Projects</h2>}
+    <Wrapper as={Container} id="organisations">
+      {repos.length > 0 && <h2>Organisations</h2>}
       <Grid>
         {repos.map((node) => (
           <Item
             key={node.id}
             as="a"
-            href={node.svn_url}
+            href={'https://github.com/'+node.login}
             target="_blank"
             rel="noopener noreferrer"
             theme={theme}
           >
             <Card theme={theme}>
               <Content>
-                <h4>{node.name}</h4>
+              <img src={node.avatar_url} />
+                <h4>{node.login}</h4>
                 <p>{node.description}</p>
               </Content>
               <Stats theme={theme}>
