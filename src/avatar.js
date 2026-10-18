@@ -32,7 +32,7 @@ export function part(geo, mat, o = {}) {
 /* ---------- soft "animated-film" materials for the avatar ---------- */
 const unitSphere = new THREE.SphereGeometry(1, 48, 32);
 const soft = (color, o = {}) => new THREE.MeshPhysicalMaterial({ color, roughness: 0.62, metalness: 0, ...o });
-const skinMat = (color) => soft(color, { roughness: 0.55, sheen: 0.8, sheenColor: new THREE.Color(0xff9d8a), sheenRoughness: 0.45, clearcoat: 0.08, clearcoatRoughness: 0.5 });
+const skinMat = (color) => soft(color, { roughness: 0.55, sheen: 0.8, sheenColor: new THREE.Color(0xffc3b8), sheenRoughness: 0.5, clearcoat: 0.08, clearcoatRoughness: 0.5 });
 
 function E(mat, pos, scl, parent, rot = [0, 0, 0]) {
   const m = new THREE.Mesh(unitSphere, mat);
@@ -121,8 +121,8 @@ export function createAvatar() {
   const root = new THREE.Group();
   const rig = {};
 
-  const skin = skinMat(0xf0c19c);
-  const skinDeep = skinMat(0xdea983);
+  const skin = skinMat(0xfbe0c9);
+  const skinDeep = skinMat(0xefc8a8);
   const lipM = soft(0xd4707e, { roughness: 0.4, clearcoat: 0.4, clearcoatRoughness: 0.3 });
   const jacketM = soft(0x7c3aed, { roughness: 0.55, sheen: 0.7, sheenColor: new THREE.Color(0xc4b5fd), sheenRoughness: 0.5 });
   const jacketDark = soft(0x5b21b6, { roughness: 0.6 });
@@ -130,7 +130,14 @@ export function createAvatar() {
   const pantsM = soft(0x17142a, { roughness: 0.7, sheen: 0.4, sheenColor: new THREE.Color(0x4a3f8a) });
   const whiteM = soft(0xf4f0ff, { roughness: 0.5 });
   const soleM = soft(0xf472b6, { roughness: 0.5 });
-  const hairM = soft(0x1d1527, { roughness: 0.32, clearcoat: 0.7, clearcoatRoughness: 0.28, sheen: 0.6, sheenColor: new THREE.Color(0x6d5bd0), sheenRoughness: 0.4 });
+  function strandTexture() {
+  const c = document.createElement('canvas'); c.width = 256; c.height = 256;
+  const g = c.getContext('2d'); g.fillStyle = '#808080'; g.fillRect(0, 0, 256, 256);
+  for (let i = 0; i < 260; i++) { const x = Math.random() * 256, w = 0.6 + Math.random() * 1.8, v = 90 + Math.random() * 110 | 0; g.fillStyle = `rgb(${v},${v},${v})`; g.fillRect(x, 0, w, 256); }
+  const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.anisotropy = 4; return t;
+}
+const hairBump = strandTexture();
+const hairM = soft(0x1b1322, { roughness: 0.5, clearcoat: 0.25, clearcoatRoughness: 0.4, sheen: 0.9, sheenColor: new THREE.Color(0x7c6be0), sheenRoughness: 0.35, bumpMap: hairBump, bumpScale: 1.6 });
   const browM = soft(0x2a1a1c, { roughness: 0.5 });
   const lashM = new THREE.MeshBasicMaterial({ color: 0x140a0e });
 
@@ -263,7 +270,7 @@ export function createAvatar() {
   const hairMD = hairM.clone(); hairMD.side = THREE.DoubleSide;
   function lockMesh(pts, w0, w1, th, { segs = 56, radial = 14, ease = 0.9, tip = 0.35 } = {}) {
     const curve = new THREE.CatmullRomCurve3(pts.map((p) => new THREE.Vector3(...p)), false, 'catmullrom', 0.5);
-    const pos = [], nor = [], idx = [];
+    const pos = [], nor = [], idx = [], uvs = [];
     const Z = new THREE.Vector3(0, 0, 1);
     for (let i = 0; i <= segs; i++) {
       const t = i / segs, p = curve.getPoint(t), T = curve.getTangent(t).normalize();
@@ -278,12 +285,14 @@ export function createAvatar() {
         pos.push(p.x + W.x * c * w + N.x * s * h, p.y + W.y * c * w + N.y * s * h, p.z + W.z * c * w + N.z * s * h);
         const nn = W.clone().multiplyScalar(c / Math.max(w, 1e-4)).add(N.clone().multiplyScalar(s / h)).normalize();
         nor.push(nn.x, nn.y, nn.z);
+        uvs.push((j / radial) * 3, t * 2.2);
       }
     }
     for (let i = 0; i < segs; i++) for (let j = 0; j < radial; j++) { const a = i * (radial + 1) + j, b = a + radial + 1; idx.push(a, b, a + 1, b, b + 1, a + 1); }
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
     g.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3));
+    g.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
     g.setIndex(idx);
     const m = new THREE.Mesh(g, hairMD); m.castShadow = true;
     return m;
@@ -300,39 +309,39 @@ export function createAvatar() {
   // side volume behind ears
   [-1, 1].forEach((sx) => E(hairMD, [sx * 0.3, -0.05, -0.04], [0.1, 0.28, 0.22], head));
 
-  // back locks: long, wavy, layered
+  // back locks: long, wavy, layered (two rows for depth)
   {
-    const NB = 11;
+    const NB = 15;
     for (let i = 0; i < NB; i++) {
-      const x = -0.3 + (0.6 * i) / (NB - 1);
-      const ph = i * 1.3, L = 1.0 + ((i * 7) % 5) * 0.07, pts = [];
-      for (let k = 0; k <= 10; k++) {
-        const u = k / 10;
-        pts.push([x * (1 + u * 0.25) + Math.sin(u * 7 + ph) * 0.045 * u, 0.22 - u * (L + 0.2), -0.2 - 0.05 * Math.abs(x) - 0.03 * u + Math.cos(u * 5 + ph) * 0.035 * u]);
+      const row = i % 2;
+      const x = -0.33 + (0.66 * i) / (NB - 1);
+      const ph = i * 1.37, L = 1.0 + ((i * 7) % 5) * 0.08, pts = [];
+      for (let k = 0; k <= 12; k++) {
+        const u = k / 12;
+        pts.push([x * (1 + u * 0.28) + Math.sin(u * 8 + ph) * 0.06 * u + (x > 0 ? 1 : -1) * 0.04 * u * u, 0.22 - u * (L + 0.2), -0.19 - row * 0.05 - 0.05 * Math.abs(x) - 0.03 * u + Math.cos(u * 6 + ph) * 0.04 * u]);
       }
-      hairBack.add(lockMesh(pts, 0.095, 0.075, 0.06, { tip: 0.28 }));
+      hairBack.add(lockMesh(pts, 0.08 + row * 0.01, 0.06, 0.055, { tip: 0.3 }));
     }
   }
-  // front side-swept locks that frame the face and fall over the shoulders
-  const zero = [];
+  // front side-swept locks that frame the face and fall over the shoulders in soft waves
   [-1, 1].forEach((sx) => {
     const lock = new THREE.Group();
     head.add(lock);
-    for (let i = 0; i < 3; i++) {
-      const o = i * 0.028, d = i * 0.012;
+    for (let i = 0; i < 4; i++) {
+      const o = i * 0.026, d = i * 0.011, wv = i * 0.9;
       const pts = [
-        [sx * 0.015, 0.36 - d, 0.255],
+        [-sx * 0.012, 0.362 - d, 0.258],
         [sx * (0.13 + o), 0.335 - d, 0.248 - d],
         [sx * (0.25 + o), 0.265 - d, 0.2],
         [sx * (0.33 + o * 0.6), 0.15, 0.14],
         [sx * (0.375 + o * 0.5), -0.04, 0.1],
         [sx * (0.39 + o * 0.5), -0.22, 0.17 + i * 0.012],
-        [sx * (0.34 + o * 0.4), -0.48, 0.26 + i * 0.01],
-        [sx * (0.355 + o * 0.3), -0.74, 0.3],
-        [sx * (0.3 + o * 0.3), -1.0, 0.3],
-        [sx * (0.33 + o * 0.3), -1.22, 0.285],
+        [sx * (0.34 + o * 0.4) - sx * 0.03 * Math.sin(wv), -0.48, 0.26 + i * 0.01],
+        [sx * (0.37 + o * 0.3) + sx * 0.04 * Math.sin(wv + 1.2), -0.74, 0.3],
+        [sx * (0.3 + o * 0.3) - sx * 0.05 * Math.sin(wv + 2.4), -1.0, 0.3],
+        [sx * (0.36 + o * 0.3) + sx * 0.06 * Math.sin(wv + 3.6), -1.24, 0.285],
       ];
-      lock.add(lockMesh(pts, 0.075 - i * 0.008, 0.06, 0.04, { tip: 0.3 }));
+      lock.add(lockMesh(pts, 0.068 - i * 0.006, 0.055, 0.038, { tip: 0.32 }));
     }
     rig.locks.push(lock);
   });
