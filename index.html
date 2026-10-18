@@ -1,363 +1,173 @@
-<!DOCTYPE HTML>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Nishi · Full-stack engineer, founder, storyteller</title>
+<meta name="description" content="Nishi Agrawal — Senior Associate (Full-stack) at BNY, builder of Inkyora. Walk through my journey in a 3D world." />
+<meta name="theme-color" content="#1a1040" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
 
-<html>
-	<head>
-		<title>Nishi Agrawal</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		
-	</head>
-	<body class="homepage is-preload">
-		<div id="page-wrapper">
+<div id="loader"><div class="ld-ring"></div><p>Building Nishi's world…</p></div>
 
-			<!-- Header -->
-				<section id="header">
+<header class="top">
+  <a class="logo" href="#ch0">nishi<span>.dev</span></a>
+  <a class="cta" href="#ch7">Say hi</a>
+</header>
 
-					<!-- Logo -->
-					<!--	<h1><a href="index.html">Lets get to know about me!</a></h1>-->
+<nav id="dots" aria-label="Chapters"></nav>
+<div id="bubble" role="status"></div>
+<div id="hint">scroll to walk <i></i></div>
 
-					<!-- Nav -->
-						<nav id="nav">
-							<header>
-								<h2 style="color: rgb(37, 33, 33)">Hi there! I am Nishi Agrawal</h2>
-								<p style="color: rgb(48, 72, 80)">A student at NIT, Trichy</p>
-							</header>
-						</nav>
-						
-					<!-- Banner -->
-						<section id="banner">
-							<img src="images/My-pic.jpeg">
-							
-						</section>
+<main id="story">
+  <section id="ch0" class="ch" data-title="Hello">
+    <article class="card">
+      <p class="eyebrow">01 · Hello</p>
+      <h1>Hi, I'm <em>Nishi</em>.</h1>
+      <p>Senior Associate (Full Stack) at <b>BNY</b>. Java, Spring Boot and data pipelines by day, building products on the side.</p>
+      <div class="chips"><span>Java</span><span>Spring Boot</span><span>React</span></div>
+      <p class="tiny">Scroll to walk. Click me, I talk back.</p>
+    </article>
+  </section>
 
-					<!-- Intro -->
-						<section id="intro" class="container">
-							<div class="row">
-								<div class="col-4 col-12-medium">
-									<section class="first">										
-										<a href="https://www.linkedin.com/in/nishi-agrawal-94194514a/" style="text-decoration:none;">
-											<i class="fab fa-linkedin fa-7x"></i>
-											<header>
-											<h2>Connect on LinkedIn!</h2>
-										</header></a>
-									</section>
-								</div>
-								<div class="col-4 col-12-medium">
-									<section class="middle">
-										<a href="https://github.com/nishihere19" style="text-decoration:none;">
-										<i class="fab fa-github fa-7x"></i>
-										<header>
-											<h2>Lets go to github!</h2>
-										</header>
-									</a>
-									</section>
-								</div>
-								<div class="col-4 col-12-medium">
-									<section class="last">
-										<a href="https://twitter.com/Nishiagr2000" style="text-decoration:none;">
-										<i class="fab fa-twitter fa-7x"></i>
-										<header>
-											<h2>Want to get in touch?</h2>
-										</header>
-									</a>
-									</section>
-								</div>
-							</div>
-							
-						</section>
+  <section id="ch1" class="ch" data-title="NIT Trichy">
+    <article class="card">
+      <p class="eyebrow">02 · Education</p>
+      <h2>NIT Trichy</h2>
+      <p>B.Tech Mechanical, 2019–23, CGPA 8.79. Mechanical by degree, web developer by habit: fest Web-Ops, CodeChef NITT Outreach &amp; Media Lead, public speaker at Colossus Toastmasters.</p>
+      <div class="chips"><span>RECAL scholarship '21</span><span>Alumni Cell</span><span>GSoC '21</span></div>
+    </article>
+  </section>
 
-				</section>
+  <section id="ch2" class="ch" data-title="BNY">
+    <article class="card">
+      <p class="eyebrow">03 · Experience · Jul 2023 – now</p>
+      <h2>BNY</h2>
+      <p>Senior Associate (Full Stack), Markets Division. Spring Boot ETLs and client-facing apps, tested with JUnit for Sonar coverage. Cut regulatory data consolidation from <b>25 days to 5 minutes</b>.</p>
+      <div class="chips"><span>Spring Boot</span><span>MSSQL</span><span>Denodo</span><span>JUnit</span></div>
+    </article>
+  </section>
 
-			<!-- Main -->
-				<section id="main">
-					<div class="container">
-						<div class="row">
-							<div class="col-12">
+  <section id="ch3" class="ch" data-title="BNY resilience">
+    <article class="card">
+      <p class="eyebrow">04 · Experience</p>
+      <h2>Backup &amp; Digital Engineer</h2>
+      <p>I designed the Backup Service solo (point-in-time recovery on S3), wrote an XML parser and ETLs for regulatory data, and built an AI agent that fixes vulnerabilities via merge requests.</p>
+      <div class="chips"><span>PITR on S3</span><span>Eliza agent</span><span>GitLab CI/CD</span><span>SME · 20+ projects</span></div>
+    </article>
+  </section>
 
-								<!-- Portfolio -->
-									<section>
-										<header class="major">
-											<h2>My Portfolio</h2>
-										</header>
-										<div class="row">
-											<div class="col-4 col-6-medium col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-													<header>
-														<h3>Ipsum feugiat et dolor</h3>
-													</header>
-													<p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat veroeros lorem blandit adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
-													<footer>
-														<ul class="actions">
-															<li><a href="#" class="button alt">Find out more</a></li>
-														</ul>
-													</footer>
-												</section>
-											</div>
-											<div class="col-4 col-6-medium col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-													<header>
-														<h3>Sed etiam lorem nulla</h3>
-													</header>
-													<p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat veroeros lorem blandit adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
-													<footer>
-														<ul class="actions">
-															<li><a href="#" class="button alt">Find out more</a></li>
-														</ul>
-													</footer>
-												</section>
-											</div>
-											<div class="col-4 col-6-medium col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-													<header>
-														<h3>Consequat et tempus</h3>
-													</header>
-													<p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat veroeros lorem blandit adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
-													<footer>
-														<ul class="actions">
-															<li><a href="#" class="button alt">Find out more</a></li>
-														</ul>
-													</footer>
-												</section>
-											</div>
-											<div class="col-4 col-6-medium col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
-													<header>
-														<h3>Blandit sed adipiscing</h3>
-													</header>
-													<p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat veroeros lorem blandit adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
-													<footer>
-														<ul class="actions">
-															<li><a href="#" class="button alt">Find out more</a></li>
-														</ul>
-													</footer>
-												</section>
-											</div>
-											<div class="col-4 col-6-medium col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
-													<header>
-														<h3>Etiam nisl consequat</h3>
-													</header>
-													<p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat veroeros lorem blandit adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
-													<footer>
-														<ul class="actions">
-															<li><a href="#" class="button alt">Find out more</a></li>
-														</ul>
-													</footer>
-												</section>
-											</div>
-											<div class="col-4 col-6-medium col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic07.jpg" alt="" /></a>
-													<header>
-														<h3>Dolore nisl feugiat</h3>
-													</header>
-													<p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat veroeros lorem blandit adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
-													<footer>
-														<ul class="actions">
-															<li><a href="#" class="button alt">Find out more</a></li>
-														</ul>
-													</footer>
-												</section>
-											</div>
-										</div>
-									</section>
+  <section id="ch4" class="ch" data-title="Goldman Sachs">
+    <article class="card">
+      <p class="eyebrow">05 · Experience · Jun – Aug 2022</p>
+      <h2>Goldman Sachs</h2>
+      <p>Summer Analyst, Fraud Applications team. Used Python and PySpark to build better rules for catching fraud at credit-application level.</p>
+      <div class="chips"><span>Python</span><span>PySpark</span><span>Databricks</span></div>
+    </article>
+  </section>
 
-							</div>
-							<div class="col-12">
+  <section id="ch5" class="ch" data-title="FrontPage">
+    <article class="card">
+      <p class="eyebrow">06 · Experience · Feb – Jun 2023</p>
+      <h2>FrontPage</h2>
+      <p>SDE Intern, web team of a paper-trading community. Watchlist APIs, webpack setup, and FrontPageGPT, an AI finance Q&amp;A tool.</p>
+      <div class="chips"><span>React</span><span>Node.js</span><span>TypeScript</span><span>MySQL</span></div>
+    </article>
+  </section>
 
-								<!-- Blog -->
-									<section>
-										<header class="major">
-											<h2>The Blog</h2>
-										</header>
-										<div class="row">
-											<div class="col-6 col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
-													<header>
-														<h3>Magna tempus consequat</h3>
-														<p>Posted 45 minutes ago</p>
-													</header>
-													<p>Lorem ipsum dolor sit amet sit veroeros sed et blandit consequat sed veroeros lorem et blandit adipiscing feugiat phasellus tempus hendrerit, tortor vitae mattis tempor, sapien sem feugiat sapien, id suscipit magna felis nec elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos lorem ipsum dolor sit amet.</p>
-													<footer>
-														<ul class="actions">
-															<li><a href="#" class="button icon solid fa-file-alt">Continue Reading</a></li>
-															<li><a href="#" class="button alt icon solid fa-comment">33 comments</a></li>
-														</ul>
-													</footer>
-												</section>
-											</div>
-											<div class="col-6 col-12-small">
-												<section class="box">
-													<a href="#" class="image featured"><img src="images/pic09.jpg" alt="" /></a>
-													<header>
-														<h3>Aptent veroeros aliquam</h3>
-														<p>Posted 45 minutes ago</p>
-													</header>
-													<p>Lorem ipsum dolor sit amet sit veroeros sed et blandit consequat sed veroeros lorem et blandit adipiscing feugiat phasellus tempus hendrerit, tortor vitae mattis tempor, sapien sem feugiat sapien, id suscipit magna felis nec elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos lorem ipsum dolor sit amet.</p>
-													<footer>
-														<ul class="actions">
-															<li><a href="#" class="button icon solid fa-file-alt">Continue Reading</a></li>
-															<li><a href="#" class="button alt icon solid fa-comment">33 comments</a></li>
-														</ul>
-													</footer>
-												</section>
-											</div>
-										</div>
-									</section>
+  <section id="ch6" class="ch" data-title="Encome">
+    <article class="card">
+      <p class="eyebrow">07 · Experience · Oct 2021 – Feb 2022</p>
+      <h2>Encome</h2>
+      <p>SDE Intern on a US stock-trading tool. Built the UI for watchlists and saved searches.</p>
+      <div class="chips"><span>React</span><span>ChartJS</span></div>
+    </article>
+  </section>
 
-							</div>
-						</div>
-					</div>
-				</section>
+  <section id="ch7" class="ch" data-title="Delta Force">
+    <article class="card">
+      <p class="eyebrow">08 · Experience · Apr 2021 – Apr 2023</p>
+      <h2>Delta Force</h2>
+      <p>Software Developer at NIT Trichy's official programming club. Built and ran apps for campus life, the student community and techno-management fests.</p>
+      <div class="chips"><span>Web apps</span><span>Campus</span><span>Fests</span></div>
+    </article>
+  </section>
 
-			<!-- Footer -->
-				<section id="footer">
-					<div class="container">
-						<div class="row">
-							<div class="col-8 col-12-medium">
-								<section>
-									<header>
-										<h2>Blandit nisl adipiscing</h2>
-									</header>
-									<ul class="dates">
-										<li>
-											<span class="date">Jan <strong>27</strong></span>
-											<h3><a href="#">Lorem dolor sit amet veroeros</a></h3>
-											<p>Ipsum dolor sit amet veroeros consequat blandit ipsum phasellus lorem consequat etiam.</p>
-										</li>
-										<li>
-											<span class="date">Jan <strong>23</strong></span>
-											<h3><a href="#">Ipsum sed blandit nisl consequat</a></h3>
-											<p>Blandit phasellus lorem ipsum dolor tempor sapien tortor hendrerit adipiscing feugiat lorem.</p>
-										</li>
-										<li>
-											<span class="date">Jan <strong>15</strong></span>
-											<h3><a href="#">Magna tempus lorem feugiat</a></h3>
-											<p>Dolore consequat sed phasellus lorem sed etiam nullam dolor etiam sed amet sit consequat.</p>
-										</li>
-										<li>
-											<span class="date">Jan <strong>12</strong></span>
-											<h3><a href="#">Dolore tempus ipsum feugiat nulla</a></h3>
-											<p>Feugiat lorem dolor sed nullam tempus lorem ipsum dolor sit amet nullam consequat.</p>
-										</li>
-										<li>
-											<span class="date">Jan <strong>10</strong></span>
-											<h3><a href="#">Blandit tempus aliquam?</a></h3>
-											<p>Feugiat sed tempus blandit tempus adipiscing nisl lorem ipsum dolor sit amet dolore.</p>
-										</li>
-									</ul>
-								</section>
-							</div>
-							<div class="col-4 col-12-medium">
-								<section>
-									<header>
-										<h2>What's this all about?</h2>
-									</header>
-									<a href="#" class="image featured"><img src="images/pic10.jpg" alt="" /></a>
-									<p>
-										This is <strong>Dopetrope</strong> a free, fully responsive HTML5 site template by
-										<a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a> It's released for free under
-										the <a href="http://html5up.net/license/">Creative Commons Attribution</a> license so feel free to use it for any personal or commercial project &ndash; just don't forget to credit us!
-									</p>
-									<footer>
-										<ul class="actions">
-											<li><a href="#" class="button">Find out more</a></li>
-										</ul>
-									</footer>
-								</section>
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<section>
-									<header>
-										<h2>Tempus consequat</h2>
-									</header>
-									<ul class="divided">
-										<li><a href="#">Lorem ipsum dolor sit amet sit veroeros</a></li>
-										<li><a href="#">Sed et blandit consequat sed tlorem blandit</a></li>
-										<li><a href="#">Adipiscing feugiat phasellus sed tempus</a></li>
-										<li><a href="#">Hendrerit tortor vitae mattis tempor sapien</a></li>
-										<li><a href="#">Sem feugiat sapien id suscipit magna felis nec</a></li>
-										<li><a href="#">Elit class aptent taciti sociosqu ad litora</a></li>
-									</ul>
-								</section>
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-								<section>
-									<header>
-										<h2>Ipsum et phasellus</h2>
-									</header>
-									<ul class="divided">
-										<li><a href="#">Lorem ipsum dolor sit amet sit veroeros</a></li>
-										<li><a href="#">Sed et blandit consequat sed tlorem blandit</a></li>
-										<li><a href="#">Adipiscing feugiat phasellus sed tempus</a></li>
-										<li><a href="#">Hendrerit tortor vitae mattis tempor sapien</a></li>
-										<li><a href="#">Sem feugiat sapien id suscipit magna felis nec</a></li>
-										<li><a href="#">Elit class aptent taciti sociosqu ad litora</a></li>
-									</ul>
-								</section>
-							</div>
-							<div class="col-4 col-12-medium">
-								<section>
-									<header>
-										<h2>Vitae tempor lorem</h2>
-									</header>
-									<ul class="social">
-										<li><a class="icon brands fa-facebook-f" href="#"><span class="label">Facebook</span></a></li>
-										<li><a class="icon brands fa-twitter" href="#"><span class="label">Twitter</span></a></li>
-										<li><a class="icon brands fa-dribbble" href="#"><span class="label">Dribbble</span></a></li>
-										<li><a class="icon brands fa-tumblr" href="#"><span class="label">Tumblr</span></a></li>
-										<li><a class="icon brands fa-linkedin-in" href="#"><span class="label">LinkedIn</span></a></li>
-									</ul>
-									<ul class="contact">
-										<li>
-											<h3>Address</h3>
-											<p>
-												Untitled Incorporated<br />
-												1234 Somewhere Road Suite<br />
-												Nashville, TN 00000-0000
-											</p>
-										</li>
-										<li>
-											<h3>Mail</h3>
-											<p><a href="#">someone@untitled.tld</a></p>
-										</li>
-										<li>
-											<h3>Phone</h3>
-											<p>(800) 000-0000</p>
-										</li>
-									</ul>
-								</section>
-							</div>
-							<div class="col-12">
+  <section id="ch8" class="ch" data-title="Virtuera">
+    <article class="card">
+      <p class="eyebrow">09 · Experience · Jan – Apr 2021</p>
+      <h2>Virtuera</h2>
+      <p>Back-end Web Developer Intern at the Virtual Placement Cell. Designed schema models and APIs, tested them, and helped wire them into the frontend.</p>
+      <div class="chips"><span>MongoDB</span><span>Node.js</span><span>Express</span><span>ReactJS</span></div>
+    </article>
+  </section>
 
-								<!-- Copyright -->
-									<div id="copyright">
-										<ul class="links">
-											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-										</ul>
-									</div>
+  <section id="ch9" class="ch" data-title="Inkyora">
+    <article class="card">
+      <p class="eyebrow">10 · Flagship project</p>
+      <h2>Inkyora</h2>
+      <p>Type a prompt, get a reel. Built with Gemini models, Razorpay and Railway.</p>
+      
+      <div class="row"><a class="btn" href="https://inkyora.com" target="_blank" rel="noopener">Visit inkyora.com ↗</a></div>
+    </article>
+  </section>
 
-							</div>
-						</div>
-					</div>
-				</section>
+  <section id="ch10" class="ch" data-title="DAuth">
+    <article class="card">
+      <p class="eyebrow">11 · Project · NIT Trichy</p>
+      <h2>DAuth</h2>
+      <p>An OAuth2 authentication portal I built for the campus: login, registration and client registration. 30,000+ students use it.</p>
+      <div class="chips"><span>Svelte</span><span>TypeScript</span><span>Node.js</span><span>Prisma</span><span>MySQL</span></div>
+      <ul class="stats"><li><b data-n="30000" data-suf="+">0</b><span>students</span></li></ul>
+    </article>
+  </section>
 
-		</div>
+  <section id="ch11" class="ch" data-title="Fest platforms">
+    <article class="card">
+      <p class="eyebrow">12 · Projects · NIT Trichy</p>
+      <h2>Fest platforms</h2>
+      <p>Pragyan '22 (UI for login, registration and event pages, 6,000+ students) and Synergy '23 (registration and events, 500+ participants). Plus a WhatsApp Web clone.</p>
+      <div class="chips"><span>Pragyan '22</span><span>Synergy '23</span><span>WhatsApp clone</span></div>
+    </article>
+  </section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+  <section id="ch12" class="ch" data-title="Side builds">
+    <article class="card">
+      <p class="eyebrow">13 · Projects</p>
+      <h2>Side builds</h2>
+      <p>A collaborative markdown editor and a file manager, both full-stack from scratch.</p>
+      <div class="chips"><span>Socket.io</span><span>Redux</span><span>MongoDB</span></div>
+    </article>
+  </section>
 
-	</body>
+  <section id="ch13" class="ch" data-title="Skills">
+    <article class="card">
+      <p class="eyebrow">14 · Toolbox</p>
+      <h2>The stack</h2>
+      
+      <div class="chips"><span>Java</span><span>Spring Boot</span><span>Python</span><span>PySpark</span><span>C++</span><span>JavaScript</span><span>TypeScript</span><span>Node.js</span><span>React</span><span>Svelte</span><span>Django</span><span>SQL</span><span>MongoDB</span><span>PostgreSQL</span><span>Git</span><span>Linux</span><span>Postman</span><span>Webpack</span><span>Databricks</span></div>
+    </article>
+  </section>
+
+  <section id="ch14" class="ch" data-title="Contact">
+    <article class="card">
+      <p class="eyebrow">15 · Portal</p>
+      <h2>Let's build something.</h2>
+      <p>Open to interesting problems and collaborations.</p>
+      
+      <div class="row"><a class="btn" href="mailto:nishiagrawal.nitt@gmail.com">nishiagrawal.nitt@gmail.com</a></div>
+      <div class="row links"><a href="https://github.com/nishihere19" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/nishihere19" target="_blank" rel="noopener">LinkedIn</a><a href="https://medium.com/@nishihere19" target="_blank" rel="noopener">Medium</a><a href="https://x.com/nishihere19" target="_blank" rel="noopener">X</a></div>
+    </article>
+  </section>
+</main>
+
+<noscript><p style="position:fixed;inset:auto 16px 16px;color:#fff">This portfolio is a 3D experience and needs JavaScript. GitHub: nishihere19 · LinkedIn: nishihere19</p></noscript>
+<script type="module" src="/src/main.js"></script>
+</body>
 </html>
